@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { LuMinus, LuPlus } from 'react-icons/lu';
-
-import useCurriculumAccordion from './useCurriculumAccordion';
 
 import styles from './index.module.scss';
 
 const CurriculumAccordion = ({ stages = [], onRegister }) => {
-    const { openStages, toggleStage } = useCurriculumAccordion();
+    const [ openStages, setOpenStages ] = useState({ 2: true });
+
+    const toggleStage = useCallback((stageId) => {
+        setOpenStages((prev) => ({
+            ...prev,
+            [stageId]: !prev[stageId],
+        }));
+    }, []);
 
     return (
         <div className={styles.curriculumContainer}>

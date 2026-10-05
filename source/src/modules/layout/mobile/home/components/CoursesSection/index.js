@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import SectionHeading from '@components/common/elements/SectionHeading';
 
+import { FALLBACK_COURSES } from './constants';
 import CourseCard from './CourseCard';
 import CurriculumAccordion from './CurriculumAccordion';
-import useCoursesSection from './useCoursesSection';
 
 import styles from './index.module.scss';
 
 const CoursesSection = ({ courses: customCourses, onAddToCart }) => {
-    const { courses, expandedCourseIds, toggleCourse } = useCoursesSection(customCourses);
+    const courses = customCourses && customCourses.length > 0 ? customCourses : FALLBACK_COURSES;
+    const [ expandedCourseIds, setExpandedCourseIds ] = useState({ 'course-1': true });
+
+    const toggleCourse = useCallback((courseId) => {
+        setExpandedCourseIds((prev) => ({
+            ...prev,
+            [courseId]: !prev[courseId],
+        }));
+    }, []);
 
     return (
         <section className={styles.coursesSection} id="courses">

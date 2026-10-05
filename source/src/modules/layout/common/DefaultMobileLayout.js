@@ -1,5 +1,4 @@
 import React from 'react';
-
 import CartDrawer from '@components/common/elements/CartDrawer';
 
 import MobileHeader from './MobileHeader';
