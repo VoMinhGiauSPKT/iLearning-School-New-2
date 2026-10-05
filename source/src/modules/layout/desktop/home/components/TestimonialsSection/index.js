@@ -4,7 +4,7 @@ import SectionHeading from '@components/common/elements/SectionHeading';
 
 import { DEFAULT_TESTIMONIALS } from './constants';
 
-import styles from './TestimonialsSection.module.scss';
+import styles from './index.module.scss';
 
 const TestimonialsSection = ({ testimonials: customTestimonials }) => {
     const testimonials =

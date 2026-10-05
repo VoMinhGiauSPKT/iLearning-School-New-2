@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './PartnerCallout.module.scss';
+import styles from './index.module.scss';
 
 const DEFAULT_DESCRIPTION = {
     title: 'Hợp tác phát triển & Đào tạo thực chiến',

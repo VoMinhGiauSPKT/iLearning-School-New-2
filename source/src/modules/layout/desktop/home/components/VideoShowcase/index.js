@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { getYoutubeEmbedUrl } from '@utils/video';
 
-import useVideoShowcase from './useVideoShowcase';
+import styles from './index.module.scss';
 
-import styles from './VideoShowcase.module.scss';
+export const DEFAULT_VIDEO_URL = 'https://youtu.be/Tx7QiS5asAo?si=Y9pE4QJt887vK2z7';
 
 const VideoShowcase = ({ videoUrl }) => {
-    const { embedUrl } = useVideoShowcase(videoUrl);
+    const embedUrl = useMemo(() => {
+        return getYoutubeEmbedUrl(videoUrl || DEFAULT_VIDEO_URL, false);
+    }, [ videoUrl ]);
+
     if (!embedUrl) return null;
 
     return (

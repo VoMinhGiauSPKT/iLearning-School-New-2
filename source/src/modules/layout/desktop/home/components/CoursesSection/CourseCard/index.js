@@ -1,7 +1,7 @@
 import React from 'react';
 import { LuChevronDown, LuShoppingBag } from 'react-icons/lu';
 
-import styles from './CourseCard.module.scss';
+import styles from './index.module.scss';
 
 const CourseCard = ({ course, isExpanded, onToggleExpand, onAddToCart }) => {
     if (!course) return null;
